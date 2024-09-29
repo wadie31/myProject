@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -26,6 +27,7 @@ public class PaymentMethod {
     
     private String accountNumber;
     
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "expiry_date")
     private Date expiryDate;
     
@@ -34,6 +36,7 @@ public class PaymentMethod {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
     
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "created_date")
     private Date createdDate;
     

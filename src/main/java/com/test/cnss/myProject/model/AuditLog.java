@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "audit_log")
 public class AuditLog implements Serializable {
@@ -28,6 +30,7 @@ public class AuditLog implements Serializable {
     @Column(name = "entity_id")
     private Long entityId;
     
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     @Column(name = "event_date")
     private Date eventDate;
     
